@@ -6,10 +6,6 @@ using System;
 using TMPro;
 using System.IO;
 using System.Runtime.CompilerServices;
-
-// Last Updated:
-//     Molly M. -- 10/15/2025
-
 public class ConnectToTSS : MonoBehaviour
 {
 
