@@ -1,9 +1,5 @@
 using System.Collections.Generic;
 
-// Last Updated:
-//    Molly M. -- 9/30/2025
-
-
 // Example Event Type:
 public class Event 
 {
