@@ -16,3 +16,15 @@ public class Event
 // - Add a vitals update event type for EV1
 // - Add a vitals update event type for EV2
 
+public class VitalsUpdatedEvent
+{
+    public VitalsDetails vitalsDetails { get; private set; }
+    public VitalsUpdatedEvent(VitalsDetails v) { vitalsDetails = v; }
+}
+
+public class FellowVitalsUpdatedEvent
+{
+    public VitalsDetails vitalsDetails { get; private set; }
+    public FellowVitalsUpdatedEvent(VitalsDetails v) { vitalsDetails = v; }
+}
+

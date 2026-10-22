@@ -1,10 +1,11 @@
 using MixedReality.Toolkit.UX;
 using UnityEngine;
+using TMPro;
 
 public class VitalsUpdate : MonoBehaviour
 {
-    private Subscription<??> vitalsUpdateEvent;
-    private Subscription<??> fellowVitalsUpdateEvent;
+    private Subscription<VitalsUpdatedEvent> vitalsUpdateEvent;
+    private Subscription<FellowVitalsUpdatedEvent> fellowVitalsUpdateEvent;
 
     [SerializeField] private GameObject eva1Screen; // Handle UI for EV1
     [SerializeField] private GameObject eva2Screen; // Handle UI for fellow astronaut
@@ -37,20 +38,20 @@ public class VitalsUpdate : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        vitalsUpdateEvent = EventBus.Subscribe <??> (vitalsEventHandler);
-        fellowVitalsUpdateEvent = EventBus.Subscribe <??> (fellowVitalsEventHandler);
+        vitalsUpdateEvent = EventBus.Subscribe<VitalsUpdatedEvent>(vitalsEventHandler);
+        //fellowVitalsUpdateEvent = EventBus.Subscribe<FellowVitalsUpdatedEvent>(fellowVitalsEventHandler);
     }
 
 
     // the function that gets called when the event is fired
-    private void vitalsEventHandler(?? e)
+    private void vitalsEventHandler(VitalsUpdatedEvent e)
     {
         // text
-        eva1_heartRateText.GetComponent<TMPro.TextMeshProUGUI>().text = e.VitalsDetails.heart_rate.ToString("F0");
+        eva1_heartRateText.GetComponent<TMPro.TextMeshProUGUI>().text = e.vitalsDetails.heart_rate.ToString("F0");
 
         // radial
         // Play around with the arc and angle values for the ringFull object
-        eva1_heartRateText.transform.Find("RingFull").GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", (float)((1 - e.VitalsDetails / < max_range >) * 302));
+        eva1_heartRateText.transform.Find("RingFull").GetComponent<SpriteRenderer>().material.SetFloat("_Arc1", (float)((1 - e.vitalsDetails.heart_rate / 100f) * 302));
 
         // progress bars
         // **Youll have to edit the slider in the inspector to set the max value**
@@ -64,10 +65,10 @@ public class VitalsUpdate : MonoBehaviour
     }
 
 
-    private void fellowVitalsEventHandler(?? e)
-    {
-        // repeat for fellow astronaut
-        // ...
-    }
+    // private void fellowVitalsEventHandler(?? e)
+    // {
+    //     // repeat for fellow astronaut
+    //     // ...
+    // }
 
 }

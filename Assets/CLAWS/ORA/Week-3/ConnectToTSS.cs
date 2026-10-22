@@ -93,11 +93,11 @@ public class ConnectToTSS : MonoBehaviour
                         Debug.Log("Telemetry" + TELEMETRYJsonString);
                         if (AstronautInstance.User.id == 1)
                         {
-                             EventBus.Publish<??>(new ??(AstronautInstance.User.telemetry.telemetry.eva1));
+                             EventBus.Publish<VitalsUpdatedEvent>(new VitalsUpdatedEvent(AstronautInstance.User.telemetry.telemetry.eva1));
                         }
                         else
                         {
-                            EventBus.Publish<??>(new ??(AstronautInstance.User.telemetry.telemetry.eva2));
+                            EventBus.Publish<FellowVitalsUpdatedEvent>(new FellowVitalsUpdatedEvent(AstronautInstance.User.telemetry.telemetry.eva2));
                         }
                     }
                     break;
