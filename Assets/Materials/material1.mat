@@ -13,6 +13,7 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EDGE_ONLY_
+  - _IRIDESCENCE_ENABLE_
   - _LINE_ENABLE_
   - _SMOOTH_EDGES_
   m_InvalidKeywords:
@@ -31,7 +32,12 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Iridescence_Enable_: 0
+    - _Angle_: 6
+    - _Iridescence_Edge_Intensity_: 0.788
+    - _Iridescence_Enable_: 1
+    - _Iridescence_Intensity_: 0.977
+    - _Line_Width_: 0.023
+    - _Radius_: 0.237
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
